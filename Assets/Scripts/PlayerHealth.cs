@@ -16,8 +16,13 @@ public class PlayerHealth : MonoBehaviour
         CurrentHealth = maxHealth;
     }
 
+    public event System.Action Died;
+
     public void TakeDamage(float damage)
     {
+        if (IsDead)
+            return;
+
         CurrentHealth -= damage;
 
         CurrentHealth = Mathf.Clamp(
@@ -33,6 +38,8 @@ public class PlayerHealth : MonoBehaviour
         if (CurrentHealth <= 0f)
         {
             Debug.Log("Player Dead");
+
+            Died?.Invoke();
         }
     }
 }

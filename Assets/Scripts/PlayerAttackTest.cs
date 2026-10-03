@@ -6,8 +6,18 @@ public class PlayerAttackTest : MonoBehaviour
     [SerializeField] private float attackDistance = 3f;
     [SerializeField] private float damage = 20f;
 
+    private PlayerHealth health;
+
+    private void Awake()
+    {
+        health = GetComponent<PlayerHealth>();
+    }
+
     private void Update()
     {
+        if (health != null && health.IsDead)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TryAttackEnemy();

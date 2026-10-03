@@ -31,6 +31,14 @@ public class EnemyPerception : MonoBehaviour
         }
     }
 
+    private PlayerHealth playerHealth;
+
+    private void Awake()
+    {
+        if (player != null)
+            playerHealth = player.GetComponent<PlayerHealth>();
+    }
+
     private void Update()
     {
         CanSeePlayer = CheckPlayerVisibility();
@@ -39,6 +47,10 @@ public class EnemyPerception : MonoBehaviour
     private bool CheckPlayerVisibility()
     {
         if (player == null)
+            return false;
+
+        // Player yang sudah mati tidak lagi terlihat oleh enemy
+        if (playerHealth != null && playerHealth.IsDead)
             return false;
 
         Vector3 origin =

@@ -7,15 +7,20 @@ public class SimplePlayerController : MonoBehaviour
     [SerializeField] private float gravity = -9.81f;
 
     private CharacterController controller;
+    private PlayerHealth health;
     private float verticalVelocity;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        health = GetComponent<PlayerHealth>();
     }
 
     private void Update()
     {
+        if (health != null && health.IsDead)
+            return;
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
