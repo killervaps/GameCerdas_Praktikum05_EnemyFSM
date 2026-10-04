@@ -6,11 +6,18 @@ public class PlayerAttackTest : MonoBehaviour
     [SerializeField] private float attackDistance = 3f;
     [SerializeField] private float damage = 20f;
 
+    [SerializeField] private Animator animator;
+
+    private static readonly int AttackHash = Animator.StringToHash("Attack");
+
     private PlayerHealth health;
 
     private void Awake()
     {
         health = GetComponent<PlayerHealth>();
+
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -20,6 +27,9 @@ public class PlayerAttackTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (animator != null)
+                animator.SetTrigger(AttackHash);
+
             TryAttackEnemy();
         }
     }

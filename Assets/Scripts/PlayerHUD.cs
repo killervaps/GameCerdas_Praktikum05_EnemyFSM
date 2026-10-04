@@ -6,7 +6,6 @@ public class PlayerHUD : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private PlayerHealth health;
-    [SerializeField] private CharacterController controller;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TMP_Text hpText;
 

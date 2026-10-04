@@ -382,7 +382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHUD
   health: {fileID: 1032643253}
-  controller: {fileID: 1032643255}
   healthBar: {fileID: 1440613392}
   hpText: {fileID: 1933167805}
 --- !u!1 &330585543
@@ -1050,6 +1049,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91f46c7363966b340b7febd4a993cf34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1032643252}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91f46c7363966b340b7febd4a993cf34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1032643257}
   m_SourcePrefab: {fileID: 100100000, guid: 91f46c7363966b340b7febd4a993cf34, type: 3}
 --- !u!1 &824772094
 GameObject:
@@ -1397,7 +1399,7 @@ MonoBehaviour:
   - {fileID: 896278208}
   patrolSpeed: 2
   waypointTolerance: 0.5
-  chaseSpeed: 4
+  chaseSpeed: 7
   lostPlayerDelay: 2
   attackRange: 2
   attackExitRange: 2.75
@@ -1539,6 +1541,7 @@ MonoBehaviour:
   enemy: {fileID: 928035096}
   attackDistance: 3
   damage: 20
+  animator: {fileID: 0}
 --- !u!114 &1032643253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1564,7 +1567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625f6829b626fab43ae3bc172fcd6933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimplePlayerController
-  moveSpeed: 5
+  moveSpeed: 8
   gravity: -9.81
 --- !u!143 &1032643255
 CharacterController:
@@ -1591,6 +1594,25 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!95 &1032643256 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 91f46c7363966b340b7febd4a993cf34, type: 3}
+  m_PrefabInstance: {fileID: 806613250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1032643257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032643249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f439756cd1e657d4798311f37b65bf44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimation
+  animator: {fileID: 1032643256}
+  health: {fileID: 1032643253}
 --- !u!1 &1145869507
 GameObject:
   m_ObjectHideFlags: 0
